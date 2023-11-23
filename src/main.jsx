@@ -2,12 +2,22 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Button } from '@material-tailwind/react';
+import Mainpage from './Pages/MainPage/Mainpage';
+import Home from './Pages/Home/Home';
+
+// import { GiEngagementRing } from "react-icons/gi";
+// <GiEngagementRing  className=' text-yellow-500'/>
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Button color="indigo">Click me</Button>,
+    element: <Mainpage></Mainpage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      }
+    ]
   },
 ]);
 
