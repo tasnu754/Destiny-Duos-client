@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import Container from "../Shared/Container/Container";
  import { GiEngagementRing } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const NavbarPage = () => {
@@ -132,7 +132,7 @@ const NavbarPage = () => {
           </Typography>
           <div className="flex  items-center gap-4">
             {/* <div className="mr-4 hidden lg:block">{navList}</div> */}
-            <div className="flex items-center gap-x-1">
+            <Link to='/signin' className="flex items-center gap-x-1">
               <Button
                 variant="gradient"
                 size="sm"
@@ -140,7 +140,7 @@ const NavbarPage = () => {
               >
                 <span>Sign in</span>
               </Button>
-            </div>
+            </Link>
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -182,11 +182,11 @@ const NavbarPage = () => {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <div className="flex items-center gap-x-1">
+          <Link to='/signin' className="flex items-center gap-x-1">
             <Button className="btn1 text-lg" fullWidth>
               <span>Sign in</span>
             </Button>
-          </div>
+          </Link>
         </MobileNav>
       </Container>
     </Navbar>

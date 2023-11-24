@@ -8,6 +8,8 @@ import ErrorPage from './Pages/ErrorPage/ErrorPage';
 import Biodatas from './Pages/Biodatas/Biodatas';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Contact from './Pages/Contact/Contact';
+import Register from './Pages/Register/Register';
+import Signin from './Pages/Signin/Signin';
 
 
 const router = createBrowserRouter([
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact></Contact>
+      },
+      {
+        path: '/signup',
+        element: <Register></Register>
+      },
+      {
+        path: '/signin',
+        element: <Signin></Signin>
       },
     ]
   },
