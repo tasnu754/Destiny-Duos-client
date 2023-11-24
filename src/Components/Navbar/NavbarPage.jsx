@@ -143,7 +143,7 @@ const NavbarPage = () => {
           <div className="flex  items-center gap-4">
             {/* <div className="mr-4 hidden lg:block">{navList}</div> */}
             {user ? (
-              <div className="md:flex justify-between items-center gap-4">
+              <div className="md:flex justify-between items-center gap-4 hidden ">
                 <p className="text-white text-xl inline">{user.displayName}</p>
                 <img
                   className="w-10 h-10 rounded-full inline ml-4"
@@ -207,13 +207,15 @@ const NavbarPage = () => {
         <Collapse open={openNav}>
           {navList}
           {user ? (
-            <div className="md:flex justify-between items-center gap-4">
-              <p className="text-white text-xl inline">{user.displayName}</p>
-              <img
-                className="w-10 h-10 rounded-full inline ml-4"
-                src={user.photoURL}
-                alt=""
-              />
+            <div className="flex flex-col-reverse justify-between items-center gap-4 ">
+              <div className="bg-blue-gray-800 p-4 my-2 rounded-md">
+                <p className="text-white text-xl inline">{user.displayName}</p>
+                <img
+                  className="w-10 h-10 rounded-full inline ml-4"
+                  src={user.photoURL}
+                  alt=""
+                />
+              </div>
               <Button className="btn1">Signout</Button>
             </div>
           ) : (

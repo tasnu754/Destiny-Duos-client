@@ -51,7 +51,7 @@ const HowWorks = () => {
                     3
                   </Button>
                 </div>
-                <p className="text-xl md:text-2xlfont-bold">
+                <p className="text-xl md:text-2xl font-bold">
                   See Other Biodatas
                 </p>
               </div>

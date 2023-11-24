@@ -11,6 +11,7 @@ import Contact from './Pages/Contact/Contact';
 import Register from './Pages/Register/Register';
 import Signin from './Pages/Signin/Signin';
 import FirebaseAuth from './Auth/FirebaseAuth';
+import { getAllBiodatas } from './APIs/biodatas';
 
 
 
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/biodatas',
-        element: <Biodatas></Biodatas>
+        element: <Biodatas></Biodatas>,
+        loader: async() => await getAllBiodatas()
       },
       {
         path: '/aboutUs',
