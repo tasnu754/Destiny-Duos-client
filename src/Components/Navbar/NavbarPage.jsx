@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import Container from "../Shared/Container/Container";
  import { GiEngagementRing } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 
 
 const NavbarPage = () => {
@@ -23,54 +24,89 @@ const NavbarPage = () => {
 
     const navList = (
       <ul className="mt-2 mb-4 font-bold flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-        <Typography
-          as="li"
-          variant="small"
-          className="p-1 "
-        >
-          <a href="#" className="flex items-center text-xl">
+        <Typography as="li" variant="small" className="p-1 text-xl">
+          <NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "bg-gray-600 text-white  text-xl p-4 rounded-md"
+                : ""
+            }
+          >
             Home
-          </a>
+          </NavLink>
         </Typography>
-        <Typography
-          as="li"
-          variant="small"
-
-          className="p-1 "
-        >
-          <a href="#" className="flex items-center text-xl">
+        <Typography as="li" variant="small" className="p-1 text-xl">
+          <NavLink
+            to="/biodatas"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "bg-gray-600 text-white  text-xl p-4 rounded-md"
+                : ""
+            }
+          >
             Biodatas
-          </a>
+          </NavLink>
         </Typography>
-        <Typography
-          as="li"
-          variant="small"
-
-          className="p-1 "
-        >
-          <a href="#" className="flex items-center text-xl">
+        <Typography as="li" variant="small" className="p-1 text-xl">
+          <NavLink
+            to="/aboutUs"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "bg-gray-600 text-white  text-xl p-4 rounded-md"
+                : ""
+            }
+          >
             About Us
-          </a>
+          </NavLink>
         </Typography>
-        <Typography
-          as="li"
-          variant="small"
-
-          className="p-1 "
-        >
-          <a href="#" className="flex items-center text-xl">
+        <Typography as="li" variant="small" className="p-1 text-xl">
+          <NavLink
+            to="/contact"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "bg-gray-600 text-white  text-xl p-4 rounded-md"
+                : ""
+            }
+          >
             Contact
-          </a>
+          </NavLink>
         </Typography>
-        <Typography
-          as="li"
-          variant="small"
-
-          className="p-1"
-        >
-          <a href="#" className="flex items-center text-xl">
+        <Typography as="li" variant="small" className="p-1 text-xl">
+          <NavLink
+            to="/signup"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "bg-gray-600 text-white  text-xl p-4 rounded-md"
+                : ""
+            }
+          >
+            Signup
+          </NavLink>
+        </Typography>
+        <Typography as="li" variant="small" className="p-1 text-xl">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "bg-gray-600 text-white  text-xl p-4 rounded-md"
+                : ""
+            }
+          >
             Dashboard
-          </a>
+          </NavLink>
         </Typography>
       </ul>
     );
@@ -80,7 +116,7 @@ const NavbarPage = () => {
 
 
   return (
-    <Navbar className="fixed bg-opacity-20 bg-black text-white top-0 z-10 h-max max-w-full rounded-none  shadow-md lg:text-xl border-none">
+    <Navbar className="md:sticky bg-opacity-20 bg-black text-white top-0 z-10 h-max max-w-full rounded-none  shadow-md lg:text-xl border-none">
       <Container>
         <div className="flex items-center justify-between ">
           <Typography
@@ -100,7 +136,7 @@ const NavbarPage = () => {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden btn1 lg:inline-block text-lg"
+                className="hidden btn1 lg:inline-block md:text-lg"
               >
                 <span>Sign in</span>
               </Button>
