@@ -6,7 +6,7 @@ const Mainpage = () => {
     return (
       <div className="font-Raleway">
         <NavbarPage></NavbarPage>
-        <div className=" min-h-[calc(100vh-68px)]">
+        <div className=" min-h-[calc(100vh-218px)]">
           <Outlet></Outlet>
         </div>
         <Footer></Footer>

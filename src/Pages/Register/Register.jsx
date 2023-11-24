@@ -8,8 +8,10 @@ import {
 
 import { Link } from "react-router-dom";
 import { imgURL } from "../../APIs/utils";
+import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
+    const { register, ProfileUpdate } = useAuth();
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -20,16 +22,28 @@ const Register = () => {
 
         const image = form.image.files[0];
 
-        const imgurlData = await imgURL(image);
-        const imgurl = imgurlData.data.display_url;
-        console.log(imgurl);
-      
+    try {
+      const imgurlData = await imgURL(image);
+      const imgurl = imgurlData.data.display_url;
 
+      const result = await register(email, pass);
+      const user = result.user;
+      console.log(user);
+
+      await ProfileUpdate(name, imgurl);
+     
+
+      form.reset();
+    } catch (error) {
+      console.log(error.message);
     }
+
+
+}
 
   return (
     <div className="flex justify-center items-center min-h-[90vh]">
-      <Card color="transparent " shadow={false}>
+      <Card shadow={false}>
         <Typography
           className="md:text-4xl font-bold text-center mb-2"
           color="blue-gray"
@@ -75,7 +89,7 @@ const Register = () => {
               size="lg"
              
               placeholder="Image"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg h-14"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg h-16"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}

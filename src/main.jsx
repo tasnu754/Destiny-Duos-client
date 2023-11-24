@@ -10,6 +10,8 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Contact from './Pages/Contact/Contact';
 import Register from './Pages/Register/Register';
 import Signin from './Pages/Signin/Signin';
+import FirebaseAuth from './Auth/FirebaseAuth';
+
 
 
 const router = createBrowserRouter([
@@ -48,6 +50,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FirebaseAuth>
+      <RouterProvider router={router} />
+    </FirebaseAuth>
   </React.StrictMode>
 );

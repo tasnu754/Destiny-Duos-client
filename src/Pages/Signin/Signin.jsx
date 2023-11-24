@@ -5,21 +5,49 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
 
 const Signin = () => {
+    const { login, goggleLogin } = useAuth();
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const pass = form.password.value;
-        console.log(email , pass);
 
+         login(email, pass)
+           .then((result) => {
+             const loguser = result.user;
+             console.log(loguser);
+             form.reset();
+             navigate(from, {replace:true})
+           })
+           .catch((error) => {
+             if (error) return setError(error.message);
+           });
       
 
     }
+
+     const handleGoogle = () => {
+       goggleLogin()
+         .then((result) => {
+             console.log(result.user);
+             navigate(from, { replace: true });
+         })
+         .catch((error) => {
+           setError(error.message);
+         });
+     };
+
 
   return (
     <div className="flex justify-center items-center min-h-[90vh]">
@@ -49,7 +77,6 @@ const Signin = () => {
               type="email"
               name="email"
               size="lg"
-              
               placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg"
               labelProps={{
@@ -68,12 +95,12 @@ const Signin = () => {
               name="password"
               size="lg"
               placeholder="********"
-            
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
             />
+            {error && <p className="text-red-500">{error}</p>}
           </div>
           <Checkbox
             label={
@@ -96,9 +123,9 @@ const Signin = () => {
           <Button type="submit" className="mt-6 md:text-xl btn1" fullWidth>
             sign in
           </Button>
-          <div className="my-4"> 
+          <div className="my-4">
             <Button
-              // onClick={handleGoogle}
+              onClick={handleGoogle}
               className="btn1 w-full md:text-lg"
             >
               <FaGoogle className="inline text-blue-800 text-xl mr-4"></FaGoogle>{" "}
