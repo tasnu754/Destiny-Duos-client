@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import NavbarPage from "../../Components/Navbar/NavbarPage";
+import Footer from "../../Components/Footer/Footer";
 
 const Mainpage = () => {
     return (
@@ -7,6 +8,7 @@ const Mainpage = () => {
         <div className="font-Raleway">
           <NavbarPage></NavbarPage>
           <Outlet></Outlet>
+          <Footer></Footer>
         </div>
 
     );
