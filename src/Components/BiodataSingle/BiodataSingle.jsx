@@ -53,7 +53,7 @@ const BiodataSingle = ({biodata}) => {
                 <p>{biodata.age} years</p>
               </div>
             </Typography>
-            <Link to='/biodataDetails'>
+            <Link to={`/biodataDetails/${biodata.biodataId}`}>
               <Button className="btn1 ">View Profile</Button>
             </Link>
           </CardBody>

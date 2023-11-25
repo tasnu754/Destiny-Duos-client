@@ -11,7 +11,7 @@ import Contact from './Pages/Contact/Contact';
 import Register from './Pages/Register/Register';
 import Signin from './Pages/Signin/Signin';
 import FirebaseAuth from './Auth/FirebaseAuth';
-import { getAllBiodatas } from './APIs/biodatas';
+import { getAllBiodatas, getSingleBiodata } from './APIs/biodatas';
 import {
   QueryClient,
   QueryClientProvider,
@@ -54,8 +54,9 @@ const router = createBrowserRouter([
         element: <Signin></Signin>,
       },
       {
-        path: "/biodataDetails",
+        path: "/biodataDetails/:id",
         element: <BiodataDetails></BiodataDetails>,
+        loader: async ({params}) => await getSingleBiodata(params.id)
       },
     ],
   },

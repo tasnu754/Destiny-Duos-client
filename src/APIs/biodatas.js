@@ -19,11 +19,18 @@ export const getFilteredBiodatas = async (queryField , queryValue) => {
         const { data } = await axiosSecure(`/biodatas?permanent_division_name=${queryValue}`);
         return data;
     }
-    else if (queryField === 'role') {
+    else if (queryField === 'role' || !queryValue) {
          const { data } = await axiosSecure(`/biodatas?role=${queryValue}`);
         return data;
     } 
     
+}
+
+
+//Get single biodata with id
+export const getSingleBiodata = async(id) => {
+    const { data } = await axiosSecure(`/biodataDetails/${id}`)
+    return data;
 }
 
 //Count biodatas
