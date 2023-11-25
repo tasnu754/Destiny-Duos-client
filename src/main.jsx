@@ -16,6 +16,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import BiodataDetails from './Routes/PrivateRoutes/BiodataDetails';
 
 const queryClient = new QueryClient();
 
@@ -28,31 +29,35 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: '/',
-        element: <Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path: '/biodatas',
+        path: "/biodatas",
         element: <Biodatas></Biodatas>,
-        loader: async() => await getAllBiodatas()
+        loader: async () => await getAllBiodatas(),
       },
       {
-        path: '/aboutUs',
-        element: <AboutUs></AboutUs>
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
       },
       {
-        path: '/contact',
-        element: <Contact></Contact>
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
-        path: '/signup',
-        element: <Register></Register>
+        path: "/signup",
+        element: <Register></Register>,
       },
       {
-        path: '/signin',
-        element: <Signin></Signin>
+        path: "/signin",
+        element: <Signin></Signin>,
       },
-    ]
+      {
+        path: "/biodataDetails",
+        element: <BiodataDetails></BiodataDetails>,
+      },
+    ],
   },
 ]);
 

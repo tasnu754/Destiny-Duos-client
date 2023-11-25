@@ -11,6 +11,9 @@
 
 
 
+      .color{
+            background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%);
+      }
          
          .btn1{
             background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%);

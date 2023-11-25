@@ -22,7 +22,12 @@ export const getFilteredBiodatas = async (queryField , queryValue) => {
     else if (queryField === 'role') {
          const { data } = await axiosSecure(`/biodatas?role=${queryValue}`);
         return data;
-    }
+    } 
     
-    
+}
+
+//Count biodatas
+export const getCountBiodatas = async() => {
+    const { data } = await axiosSecure('/biodatas/count')
+    return data;
 }

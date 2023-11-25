@@ -5,7 +5,7 @@ const HowWorks = () => {
     return (
       <Container>
         <div className="py-20 ">
-          <h2 className="text-2xl md:text-5xl font-bold text-center">
+          <h2 className="text-2xl md:text-5xl font-bold text-center text-yellow-900">
             How it Works!
           </h2>
           <div className="grid lg:grid-cols-2 gap-14">

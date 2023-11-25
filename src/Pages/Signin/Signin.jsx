@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
+import { postUser } from "../../APIs/users";
 
 const Signin = () => {
     const { login, goggleLogin } = useAuth();
@@ -39,9 +40,21 @@ const Signin = () => {
 
      const handleGoogle = () => {
        goggleLogin()
-         .then((result) => {
-             console.log(result.user);
-             navigate(from, { replace: true });
+         .then(async(result) => {
+           const user = result.user;
+           
+        const UserPost = {
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        role : 'User'
+      };
+
+       await postUser(UserPost);
+      
+
+        navigate(from, { replace: true });
+           
          })
          .catch((error) => {
            setError(error.message);

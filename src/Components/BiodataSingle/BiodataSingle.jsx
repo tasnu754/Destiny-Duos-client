@@ -7,6 +7,7 @@ import {
   Avatar,
   Button,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const BiodataSingle = ({biodata}) => {
     return (
@@ -52,7 +53,9 @@ const BiodataSingle = ({biodata}) => {
                 <p>{biodata.age} years</p>
               </div>
             </Typography>
-            <Button className="btn1 ">View Profile</Button>
+            <Link to='/biodataDetails'>
+              <Button className="btn1 ">View Profile</Button>
+            </Link>
           </CardBody>
         </Card>
       </div>

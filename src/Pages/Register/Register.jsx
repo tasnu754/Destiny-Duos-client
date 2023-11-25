@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { imgURL } from "../../APIs/utils";
 import useAuth from "../../Hooks/useAuth";
+import { postUser } from "../../APIs/users";
 
 const Register = () => {
     const { register, ProfileUpdate } = useAuth();
@@ -20,7 +21,8 @@ const Register = () => {
         const email = form.email.value;
         const pass = form.password.value;
 
-        const image = form.image.files[0];
+      const image = form.image.files[0];
+   
 
     try {
       const imgurlData = await imgURL(image);
@@ -29,8 +31,22 @@ const Register = () => {
       const result = await register(email, pass);
       const user = result.user;
       console.log(user);
+      form.reset();
 
+      
       await ProfileUpdate(name, imgurl);
+       location.reload();
+  
+
+      const UserPost = {
+        email: email,
+        displayName: name,
+        photoURL: imgurl,
+        role : 'User'
+      };
+
+     await postUser(UserPost);
+     
      
 
       form.reset();
