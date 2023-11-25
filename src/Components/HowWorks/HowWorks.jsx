@@ -42,7 +42,7 @@ const HowWorks = () => {
             <div className="lg:w-[50%] mx-auto h-[400px] p-4">
               <img
                 className="object-cover h-full"
-                src="https://i.ibb.co/fCV4hW1/5257489-52234.jpg"
+                src="https://i.ibb.co/m5MYqfs/9793478-4269930.jpg"
                 alt=""
               />
               <div className="flex gap-2 items-center mt-4">
@@ -59,7 +59,7 @@ const HowWorks = () => {
             <div className="lg:w-[50%] mx-auto h-[400px] p-4">
               <img
                 className="object-cover h-full"
-                src="https://i.ibb.co/vzjDWNM/20824341-6368592.jpg"
+                src="https://i.ibb.co/vHrnTrn/9930925-4270272.jpg"
                 alt=""
               />
               <div className="flex gap-2 items-center mt-4">
