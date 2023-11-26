@@ -10,7 +10,11 @@ const CounterBiodatas = () => {
      });
     
     if (isLoading) {
-      return <Spinner className="h-16 w-16 text-gray-900/50" />;
+      return (
+        <div className="flex justify-center items-center py-10">
+          <Spinner className="h-16 w-16 text-gray-900/50 " />
+        </div>
+      );
     }
 
 
