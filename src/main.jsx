@@ -25,6 +25,13 @@ import ViewBiodata from './Pages/Dashboard/ViewBiodata';
 import ContactRequests from './Pages/Dashboard/ContactRequests';
 import Favourites from './Pages/Dashboard/Favourites';
 import UserRoutes from './Routes/UserRoutes/UserRoutes';
+import MarriegeForm from './Pages/Dashboard/MarriegeForm';
+import AdminDashboard from './Pages/Dashboard/AdminDashboard';
+import ManageUser from './Pages/Dashboard/ManageUser';
+import AdminRoutes from './Routes/AdminRoutes/AdminRoutes';
+import ApprovePremium from './Pages/Dashboard/ApprovePremium';
+import ApproveReq from './Pages/Dashboard/ApproveReq';
+import Statistics from './Pages/Dashboard/Statistics';
 
 const queryClient = new QueryClient();
 
@@ -122,6 +129,66 @@ const router = createBrowserRouter([
             <UserRoutes>
               <Favourites></Favourites>
             </UserRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "marriage",
+        element: (
+          <PrivateRoute>
+            <UserRoutes>
+              <MarriegeForm></MarriegeForm>
+            </UserRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "adminDashboard",
+        element: (
+          <PrivateRoute>
+            <AdminRoutes>
+              <AdminDashboard></AdminDashboard>
+            </AdminRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manageUsers",
+        element: (
+          <PrivateRoute>
+            <AdminRoutes>
+              <ManageUser></ManageUser>
+            </AdminRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "approvePremium",
+        element: (
+          <PrivateRoute>
+            <AdminRoutes>
+              <ApprovePremium></ApprovePremium>
+            </AdminRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "approveContactReq",
+        element: (
+          <PrivateRoute>
+            <AdminRoutes>
+              <ApproveReq></ApproveReq>
+            </AdminRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "statistic",
+        element: (
+          <PrivateRoute>
+            <AdminRoutes>
+              <Statistics></Statistics>
+            </AdminRoutes>
           </PrivateRoute>
         ),
       },
