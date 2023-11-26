@@ -4,7 +4,12 @@ import useAuth from "../../Hooks/useAuth";
 
 import { getUserBiodata } from "../../APIs/biodatas";
 import { useEffect, useState } from "react";
-import { Button } from "@material-tailwind/react";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+loadStripe
+
+const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 
 
 const CheckOut = () => {
@@ -18,11 +23,17 @@ const CheckOut = () => {
         .then(data=>setUserBiodata(data))
      },[user.email])
 
+  const requestedBiodata = {
+    ...biodata,
+    RequesterEmail: user.email,
+    RequesterName: user.displayName,
+    RequesterImg: user.photoURL
+  };
 
 
     return (
       <Container>
-        <div className="border-2 border-yellow-700 md:h-[50vh] md:w-[60%] mx-auto rounded-lg p-4 lg:mt-24">
+        <div className="border-2 border-yellow-700 md:h-[60vh] md:w-[60%] mx-auto rounded-lg p-4 lg:mt-14">
           <h2 className="text-center text-3xl font-bold py-10">
             Checkout For Contact
           </h2>
@@ -39,10 +50,9 @@ const CheckOut = () => {
             </p>
 
             {/* Stripe card */}
-
-            <div className="w-full flex justify-center py-4">
-              <Button className="btn1 lg:text-lg lg:w-[30%] mx-auto">Submit</Button>
-            </div>
+            <Elements stripe={stripePromise}>
+              <CheckoutForm requestedBiodata={requestedBiodata}></CheckoutForm>
+            </Elements>
           </div>
         </div>
       </Container>
