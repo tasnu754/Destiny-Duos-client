@@ -61,7 +61,7 @@ const Register = () => {
     <div className="flex justify-center items-center min-h-[90vh]">
       <Card shadow={false}>
         <Typography
-          className="md:text-4xl font-bold text-center mb-2"
+          className="md:text-4xl font-bold text-center my-2"
           color="blue-gray"
         >
           Sign Up
@@ -105,7 +105,7 @@ const Register = () => {
               size="lg"
              
               placeholder="Image"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg h-16"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg h-[50px]"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}

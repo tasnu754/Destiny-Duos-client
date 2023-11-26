@@ -116,7 +116,7 @@ const CheckoutForm = ({requestedBiodata}) => {
    
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <CardElement
           options={{
             style: {
@@ -134,7 +134,7 @@ const CheckoutForm = ({requestedBiodata}) => {
           }}
         />
         <button
-          className="text-black "
+          className="text-black button1"
           type="submit"
           disabled={!stripe || !clientSecret || proccessing}
         >

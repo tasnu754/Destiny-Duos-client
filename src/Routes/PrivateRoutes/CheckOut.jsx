@@ -33,7 +33,7 @@ const CheckOut = () => {
 
     return (
       <Container>
-        <div className="border-2 border-yellow-700 md:h-[60vh] md:w-[60%] mx-auto rounded-lg p-4 lg:mt-14">
+        <div className="border-2 border-yellow-700 lg:h-[60vh] md:w-[60%] mx-auto rounded-lg p-4 lg:mt-14">
           <h2 className="text-center text-3xl font-bold py-10">
             Checkout For Contact
           </h2>

@@ -19,6 +19,12 @@ import {
 import BiodataDetails from './Routes/PrivateRoutes/BiodataDetails';
 import PrivateRoute from './Routes/PrivateRoutes/PrivateRoute';
 import CheckOut from './Routes/PrivateRoutes/CheckOut';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import EditBiodata from './Pages/Dashboard/EditBiodata';
+import ViewBiodata from './Pages/Dashboard/ViewBiodata';
+import ContactRequests from './Pages/Dashboard/ContactRequests';
+import Favourites from './Pages/Dashboard/Favourites';
+import UserRoutes from './Routes/UserRoutes/UserRoutes';
 
 const queryClient = new QueryClient();
 
@@ -66,8 +72,58 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkOut/:id",
-        element: <CheckOut></CheckOut>,
+        element: (
+          <PrivateRoute>
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => await getSingleBiodata(params.id),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "editBiodata",
+        element: (
+          <PrivateRoute>
+            <UserRoutes>
+              <EditBiodata></EditBiodata>
+            </UserRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "viewBiodata",
+        element: (
+          <PrivateRoute>
+            <UserRoutes>
+              <ViewBiodata></ViewBiodata>
+            </UserRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "contactRequest",
+        element: (
+          <PrivateRoute>
+            <UserRoutes>
+              <ContactRequests></ContactRequests>
+            </UserRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "favourites",
+        element: (
+          <PrivateRoute>
+            <UserRoutes>
+              <Favourites></Favourites>
+            </UserRoutes>
+          </PrivateRoute>
+        ),
       },
     ],
   },

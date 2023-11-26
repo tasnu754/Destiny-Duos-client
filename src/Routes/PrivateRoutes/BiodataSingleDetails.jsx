@@ -49,7 +49,7 @@ const BiodataSingleDetails = ({ biodataDetails, role, handleFavourite }) => {
           </Button>
           {role !== "Premium" && (
             <Link to={`/checkOut/${biodataDetails.biodataId}`}>
-              <Button className="btn1">Contact</Button>
+              <Button className="btn1  pb-4">Contact</Button>
             </Link>
           )}
         </div>
