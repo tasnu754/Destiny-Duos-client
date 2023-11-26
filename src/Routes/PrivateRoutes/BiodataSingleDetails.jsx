@@ -39,7 +39,7 @@ const BiodataSingleDetails = ({ biodataDetails, role }) => {
               <p>Contact Number : {biodataDetails?.mobile_number}</p>
             </div>
           )}
-          <div className="md:flex justify-between pt-4">
+          <div className="md:flex justify-between space-y-2 pt-4">
             <Button className="btn1 pb-4">Add to Favourites</Button>
             {role !== "Premium" && <Button className="btn1">Contact</Button>}
           </div>

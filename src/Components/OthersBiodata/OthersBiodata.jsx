@@ -3,7 +3,7 @@ import { Avatar, Button, Card, CardBody, CardHeader, Typography } from "@materia
 
 const OthersBiodata = ({other , role}) => {
     return (
-      <div className="shadow-md p-4">
+      <div className="shadow-md p-4 ">
         <Card
           color="transparent"
           shadow={false}
@@ -36,22 +36,22 @@ const OthersBiodata = ({other , role}) => {
           </CardHeader>
           <CardBody className="mb-6 p-0 ">
             <Typography>
-              <div className="flex justify-between">
+              <div className="md:flex justify-between">
                 <p>Biodata Id: {other?.biodataId}</p>
                 <p>{other?.biodatatype}</p>
               </div>
-              <div className="flex justify-between ">
+              <div className="md:flex justify-between ">
                 <p>Permanent Division: {other?.permanent_division_name}</p>
                 <p>{other.race} </p>
               </div>
-              <div className="flex justify-between">
+              <div className="md:flex justify-between">
                 <p>Birth Date: {other?.date_of_birth}</p>
                 <p>{other.age} years</p>
               </div>
-              <div className="flex justify-between ">
+              <div className="md:flex justify-between ">
                 <p>Fathers Name: {other?.fathers_name}</p>
               </div>
-              <div className="flex justify-between ">
+              <div className="md:flex justify-between ">
                 <p>Mothers Name: {other?.mothers_name}</p>
               </div>
               <p>Expected Partner Age : {other?.expected_partner_age}</p>
@@ -64,7 +64,7 @@ const OthersBiodata = ({other , role}) => {
                 </div>
               )}
             </Typography>
-            <div className="md:flex justify-between pt-4">
+            <div className="md:flex justify-between space-y-2 pt-4">
               <Button className="btn1 pb-4">Add to Favourites</Button>
               {role !== "Premium" && <Button className="btn1">Contact</Button>}
             </div>

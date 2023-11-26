@@ -32,18 +32,18 @@ const BiodataDetails = () => {
  
 
     return (
-      <div className="lg:grid grid-cols-6 gap-4">
+      <div className="lg:grid grid-cols-6 gap-4 border-2">
         <div className=" col-span-2">
           <BiodataSingleDetails
             biodataDetails={biodataDetails.biodata}
             role={role}
           ></BiodataSingleDetails>
         </div>
-        <div className=" col-span-3">
+        <div className=" col-span-4">
           <h2 className="text-3xl text-center font-bold py-4">
             Others Profile
           </h2>
-          <div className="lg:grid grid-cols-2 gap-6">
+          <div className="lg:grid grid-cols-2 gap-14 space-y-4 px-10">
             {others.map((other, i) => (
               <OthersBiodata key={i} other={other} role={role}></OthersBiodata>
             ))}

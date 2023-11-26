@@ -16,7 +16,8 @@ const Signin = () => {
     const [error, setError] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location?.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
+    console.log(location , from);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -28,8 +29,9 @@ const Signin = () => {
            .then((result) => {
              const loguser = result.user;
              console.log(loguser);
+              navigate(from, { replace: true });
              form.reset();
-             navigate(from, {replace:true})
+            
            })
            .catch((error) => {
              if (error) return setError(error.message);
