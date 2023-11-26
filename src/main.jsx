@@ -18,6 +18,7 @@ import {
 } from "@tanstack/react-query";
 import BiodataDetails from './Routes/PrivateRoutes/BiodataDetails';
 import PrivateRoute from './Routes/PrivateRoutes/PrivateRoute';
+import CheckOut from './Routes/PrivateRoutes/CheckOut';
 
 const queryClient = new QueryClient();
 
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
             <BiodataDetails></BiodataDetails>
           </PrivateRoute>
         ),
+        loader: async ({ params }) => await getSingleBiodata(params.id),
+      },
+      {
+        path: "/checkOut/:id",
+        element: <CheckOut></CheckOut>,
         loader: async ({ params }) => await getSingleBiodata(params.id),
       },
     ],

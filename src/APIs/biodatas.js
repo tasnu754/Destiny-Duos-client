@@ -33,6 +33,12 @@ export const getSingleBiodata = async(id) => {
     return data;
 }
 
+//Get single biodata with email
+export const getUserBiodata = async(email) => {
+    const { data } = await axiosSecure(`/userBiodata/${email}`)
+    return data;
+}
+
 //Count biodatas
 export const getCountBiodatas = async() => {
     const { data } = await axiosSecure('/biodatas/count')
