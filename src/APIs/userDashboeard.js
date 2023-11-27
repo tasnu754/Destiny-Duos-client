@@ -17,3 +17,4 @@ export const addSuccessStroy = async(successStory) => {
     const { data } = await axiosSecure.put('/addSuccessStory' , successStory)
     return data;
 }
+

@@ -36,6 +36,10 @@ const CounterBiodatas = () => {
             <h3>Female Biodatas</h3>
             <p>{countBiodatas.femaleBiodatasCount}</p>
           </div>
+          <div className="color text-white p-10 rounded-lg text-center md:text-3xl w-[70%] lg:w-[50%] mx-auto">
+            <h3>Marriages Done</h3>
+            <p>{countBiodatas.successStoryCount}</p>
+          </div>
         </div>
       </Container>
     );

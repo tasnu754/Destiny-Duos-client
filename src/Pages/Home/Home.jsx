@@ -1,8 +1,8 @@
 import CounterBiodatas from "../../Components/CounterBiodatas/CounterBiodatas";
 import HowWorks from "../../Components/HowWorks/HowWorks";
-import MarriagesCards from "../../Components/MarriagesCard/MarriagesCards";
 import PremiumSection from "../../Components/PremiumSection/PremiumSection";
 import Slider from "../../Components/Slider/Slider";
+import SuccessStory from "../../Components/SuccessStory/SuccessStory";
 
 
 
@@ -13,7 +13,7 @@ const Home = () => {
         <PremiumSection></PremiumSection>
         <HowWorks></HowWorks>
         <CounterBiodatas></CounterBiodatas>
-        <MarriagesCards></MarriagesCards>
+        <SuccessStory></SuccessStory>
       </div>
     );
 };
