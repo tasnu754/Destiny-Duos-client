@@ -133,7 +133,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "marriage",
+        path: "married",
         element: (
           <PrivateRoute>
             <UserRoutes>

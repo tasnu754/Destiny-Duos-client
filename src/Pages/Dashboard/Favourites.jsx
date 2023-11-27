@@ -16,8 +16,8 @@ const Favourites = () => {
     });
 
     const handleDelete = async (biodataId) => {
-        const res = await deleteUserFavBiodata(biodataId);
-        console.log(res);
+       await deleteUserFavBiodata(biodataId);
+        
         await refetch();
         Swal.fire({
           icon: "error",

@@ -11,3 +11,9 @@ export const deleteUserFavBiodata = async (id) => {
     const { data } = await axiosSecure.delete(`/deleteUserFavBiodata/${id}`)
     return data;
 }
+
+//add success story to success strory collection
+export const addSuccessStroy = async(successStory) => {
+    const { data } = await axiosSecure.put('/addSuccessStory' , successStory)
+    return data;
+}
