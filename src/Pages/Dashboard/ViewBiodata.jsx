@@ -84,7 +84,7 @@ const ViewBiodata = () => {
           </p>
         </div>
         {role === "user" || role==="requested" && (
-          <div className="w-[50%] mx-auto py-4 text-center">
+          <div className="w-[50%] mx-auto py-6 text-center">
             <button
               onClick={handleMakePremium}
               type="submit"

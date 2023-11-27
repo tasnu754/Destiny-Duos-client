@@ -20,7 +20,7 @@ const CounterBiodatas = () => {
 
     return (
       <Container>
-        <h2 className="text-5xl text-center font-bold text-yellow-900 py-10">
+        <h2 className="text-5xl text-center font-bold text-yellow-800 py-10">
           Number of Biodatas
         </h2>
         <div className="grid lg:grid-cols-2 gap-10 pb-6">
