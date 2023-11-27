@@ -21,6 +21,10 @@ const Sidebar = () => {
     const [isActive, setActive] = useState(false);
     const { user } = useAuth();
 
+     const handleToggle = () => {
+       setActive(!isActive);
+     };
+
 
        const { data: role , isLoading } = useQuery({
          queryKey: ["role"],
@@ -37,9 +41,7 @@ const Sidebar = () => {
        }
 
 
-    const handleToggle = () => {
-        setActive(!isActive);
-    }
+   
   return (
     <>
       {/* Small device  */}
@@ -68,7 +70,7 @@ const Sidebar = () => {
           {role === "user" || role === "Premium" ? (
             <>
               <MenuItem
-                label="Edit Biodata"
+                label="Create/Edit Biodata"
                 address="editBiodata"
                 icon={FaEdit}
               ></MenuItem>

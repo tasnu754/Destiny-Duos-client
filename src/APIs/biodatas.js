@@ -44,3 +44,10 @@ export const getCountBiodatas = async() => {
     const { data } = await axiosSecure('/biodatas/count')
     return data;
 }
+
+
+// Add biodata to Biodata COllection
+export const addBiodata = async(biodata) => {
+    const { data } = await axiosSecure.put('/addBiodata' , biodata)
+    return data;
+}
