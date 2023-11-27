@@ -17,6 +17,7 @@ import { IoGitPullRequest } from "react-icons/io5";
 import { FaChartPie } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
+import { Spinner } from "@material-tailwind/react";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
@@ -27,7 +28,7 @@ const Sidebar = () => {
      };
 
 
-       const { data: role } = useQuery({
+       const { data: role, isLoading } = useQuery({
          queryKey: ["role"],
          queryFn: () => getRole(user.email),
        });
@@ -39,13 +40,13 @@ const Sidebar = () => {
       };
 
 
-      //  if (isLoading) {
-      //    return (
-      //      <div className="flex justify-center items-center py-10">
-      //        <Spinner className="h-16 w-16 text-gray-900/50 " />
-      //      </div>
-      //    );
-      //  }
+       if (isLoading) {
+         return (
+           <div className="flex justify-center items-center py-10">
+             <Spinner className="h-16 w-16 text-gray-900/50 " />
+           </div>
+         );
+       }
 
 
    

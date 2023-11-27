@@ -1,20 +1,31 @@
 import { Card, Typography } from "@material-tailwind/react";
 import { useQuery } from "@tanstack/react-query";
 import { MdDeleteForever } from "react-icons/md";
-import { getUserFavBiodata } from "../../APIs/userDashboeard";
+import {  deleteUserFavBiodata, getUserFavBiodata } from "../../APIs/userDashboeard";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const TABLE_HEAD = ["Name", "Biodata Id", "Permanent Address", "Occupation" , "Delete"];
 
 
-// const TABLE_ROWS = [];
-
 const Favourites = () => {
     const { user } = useAuth();
-    const { data: TABLE_ROWS = [] } = useQuery({
+    const { data: TABLE_ROWS = [] , refetch } = useQuery({
       queryKey: ["favourites biodata"],
       queryFn: () => getUserFavBiodata(user.email),
     });
+
+    const handleDelete = async (biodataId) => {
+        const res = await deleteUserFavBiodata(biodataId);
+        console.log(res);
+        await refetch();
+        Swal.fire({
+          icon: "error",
+          title: "Done...",
+          text: "Deleted Successfully!",
+        });
+        
+    };
   return (
     <div>
       <Card className="h-full w-full overflow-x-scroll">
@@ -78,7 +89,11 @@ const Favourites = () => {
                     </Typography>
                   </td>
                   <td className="p-4">
-                    <button color="blue-gray" className="font-medium">
+                    <button
+                      onClick={() => handleDelete(biodataId)}
+                      color="blue-gray"
+                      className="font-medium"
+                    >
                       <MdDeleteForever className="w-7 h-7"></MdDeleteForever>
                     </button>
                   </td>
