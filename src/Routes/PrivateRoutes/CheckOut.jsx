@@ -24,10 +24,31 @@ const CheckOut = () => {
      },[user.email])
 
   const requestedBiodata = {
-    ...biodata,
+    // ...biodata,
+    biodataId: biodata.biodataId,
+    biodatatype: biodata.biodatatype,
+    name: biodata.name,
+    image: biodata.image,
+    date_of_birth: biodata.date_of_birth,
+    height: biodata.height,
+    weight: biodata.weight,
+    age: biodata.age,
+    occupation: biodata.occupation,
+    race: biodata.race,
+    fathers_name: biodata.fathers_name,
+    mothers_name: biodata.mothers_name,
+    permanent_division_name: biodata.permanent_division_name,
+    present_division_name: biodata.present_division_name,
+    expected_partner_age: biodata.expected_partner_age,
+    expected_partner_height: biodata.expected_partner_height,
+    expected_partner_weight: biodata.expected_partner_weight,
+    contact_email: biodata.contact_email,
+    mobile_number: biodata.mobile_number,
+    status: biodata.status,
+    role: biodata.role,
     RequesterEmail: user.email,
     RequesterName: user.displayName,
-    RequesterImg: user.photoURL
+    RequesterImg: user.photoURL,
   };
 
 

@@ -9,43 +9,50 @@ import { MdFavorite } from "react-icons/md";
 import useAuth from "../../Hooks/useAuth";
 import { getRole } from "../../APIs/users";
 import { useQuery } from "@tanstack/react-query";
-import { Spinner } from "@material-tailwind/react";
 import { GiEngagementRing } from "react-icons/gi";
 import { MdDashboard } from "react-icons/md";
 import { MdManageAccounts } from "react-icons/md";
 import { MdFileDownloadDone } from "react-icons/md";
 import { IoGitPullRequest } from "react-icons/io5";
 import { FaChartPie } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
 
      const handleToggle = () => {
        setActive(!isActive);
      };
 
 
-       const { data: role , isLoading } = useQuery({
+       const { data: role } = useQuery({
          queryKey: ["role"],
          queryFn: () => getRole(user.email),
        });
+  
+      const handleSignout = () => {
+        logout()
+          .then(() => {})
+          .catch((error) => console.log(error));
+      };
 
 
-       if (isLoading) {
-         return (
-           <div className="flex justify-center items-center py-10">
-             <Spinner className="h-16 w-16 text-gray-900/50 " />
-           </div>
-         );
-       }
+      //  if (isLoading) {
+      //    return (
+      //      <div className="flex justify-center items-center py-10">
+      //        <Spinner className="h-16 w-16 text-gray-900/50 " />
+      //      </div>
+      //    );
+      //  }
 
 
    
   return (
     <>
       {/* Small device  */}
-      <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
+      <div className=" bg-gray-100 text-gray-800 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold text-xl text-yellow-800">
             Desdiny Duos
@@ -63,11 +70,11 @@ const Sidebar = () => {
       {/* Big Device  */}
       <div
         className={`z-10 md:fixed h-full flex flex-col justify-between overflow-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 ${
-          isActive && " -translate-x-full"
+          isActive && " -translate-x-full absolute "
         }  md:translate-x-0 transition duration-200 ease-in-out `}
       >
         <div>
-          {role === "user" || role === "Premium" ? (
+          {role === "user" || role === "Premium" || role === "requested" ? (
             <>
               <MenuItem
                 label="Create/Edit Biodata"
@@ -128,11 +135,23 @@ const Sidebar = () => {
           )}
         </div>
         <hr />
-        <div className="flex items-center px-4 py-2 my-5  transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
-          <button className="flex justify-center items-center p-4 ">
-            <IoIosLogOut className="w-7 h-7"></IoIosLogOut>
-            <span className="mx-4 font-medium text-xl">Logout</span>
-          </button>
+
+        <div>
+          <div className="flex items-center   transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
+            <Link to="/" className="flex justify-center items-center p-4 ">
+              <FaHome className="w-7 h-7"></FaHome>
+              <span className="mx-4 font-medium text-xl">Home</span>
+            </Link>
+          </div>
+          <div className="flex items-center  transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
+            <button
+              onClick={handleSignout}
+              className="flex justify-center items-center p-4 "
+            >
+              <IoIosLogOut className="w-7 h-7 "></IoIosLogOut>
+              <span className="mx-4 font-medium text-xl">Logout</span>
+            </button>
+          </div>
         </div>
       </div>
     </>

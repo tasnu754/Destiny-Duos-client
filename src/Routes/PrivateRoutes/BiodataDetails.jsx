@@ -25,11 +25,32 @@ const BiodataDetails = () => {
   
   const handleFavourite = async (biodataItem) => {
     const item = {
-      ...biodataItem,
+      // ...biodataItem,
+      biodataId: biodataItem.biodataId,
+      biodatatype: biodataItem.biodatatype,
+      name: biodataItem.name,
+      image: biodataItem.image,
+      date_of_birth: biodataItem.date_of_birth,
+      height: biodataItem.height,
+      weight: biodataItem.weight,
+      age: biodataItem.age,
+      occupation: biodataItem.occupation,
+      race: biodataItem.race,
+      fathers_name: biodataItem.fathers_name,
+      mothers_name: biodataItem.mothers_name,
+      permanent_division_name: biodataItem.permanent_division_name,
+      present_division_name: biodataItem.present_division_name,
+      expected_partner_age: biodataItem.expected_partner_age,
+      expected_partner_height: biodataItem.expected_partner_height,
+      expected_partner_weight: biodataItem.expected_partner_weight,
+      contact_email: biodataItem.contact_email,
+      mobile_number: biodataItem.mobile_number,
+      status: biodataItem.status,
+      role: biodataItem.role,
       userEmail: user.email,
       userName: user.displayName,
       userImg: user.photoURL,
-      userRole: user.role
+      userRole: user.role,
     };
 
     const result = await addFav(item);

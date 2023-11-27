@@ -66,6 +66,7 @@ const EditBiodata = () => {
         
            await addBiodata(biodata);
           setIsSpine(false);
+          form.reset();
       
 
       } catch (err) {

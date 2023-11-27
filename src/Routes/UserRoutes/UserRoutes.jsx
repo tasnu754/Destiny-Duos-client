@@ -15,7 +15,7 @@ const UserRoutes = ({children}) => {
        return <span className="loading loading-spinner text-success"></span>;
      }
 
-     if (role === "user" || role === "Premium") {
+     if (role === "user" || role === "Premium" || role === "requested") {
        return children;
      }
 

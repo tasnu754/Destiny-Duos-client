@@ -216,7 +216,9 @@ const NavbarPage = () => {
                   alt=""
                 />
               </div>
-              <Button className="btn1">Signout</Button>
+              <Button onClick={handleSignout} className="btn1">
+                Signout
+              </Button>
             </div>
           ) : (
             <Link to="/signin" className="flex items-center gap-x-1">
