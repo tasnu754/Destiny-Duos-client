@@ -18,6 +18,7 @@ import { FaChartPie } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { Spinner } from "@material-tailwind/react";
+import { GiLovers } from "react-icons/gi";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
@@ -107,7 +108,7 @@ const Sidebar = () => {
               ></MenuItem>
             </>
           )}
-          {role==="Admin" && (
+          {role === "Admin" && (
             <>
               <MenuItem
                 label="Admin Dashboard"
@@ -134,6 +135,11 @@ const Sidebar = () => {
                 label="Statistics"
                 address="statistic"
                 icon={FaChartPie}
+              ></MenuItem>
+              <MenuItem
+                label="Success Stories"
+                address="successStories"
+                icon={GiLovers}
               ></MenuItem>
             </>
           )}
