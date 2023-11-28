@@ -35,14 +35,14 @@ const Register = () => {
 
       
       await ProfileUpdate(name, imgurl);
-       location.reload();
+      //  location.reload();
   
 
       const UserPost = {
-        email: email,
-        displayName: name,
-        photoURL: imgurl,
-        role : 'User'
+        userEmail: email,
+        role: "user",
+        userName: name,
+        userPhoto: imgurl,
       };
 
      await postUser(UserPost);

@@ -15,27 +15,29 @@ import { MdManageAccounts } from "react-icons/md";
 import { MdFileDownloadDone } from "react-icons/md";
 import { IoGitPullRequest } from "react-icons/io5";
 import { FaChartPie } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { Spinner } from "@material-tailwind/react";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
-    const { user, logout } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
      const handleToggle = () => {
        setActive(!isActive);
      };
 
 
-       const { data: role, isLoading } = useQuery({
+       const { data: role="", isLoading } = useQuery({
          queryKey: ["role"],
-         queryFn: () => getRole(user.email),
+         queryFn: () =>  getRole(user?.email),
        });
+  console.log(user, role);
   
       const handleSignout = () => {
         logout()
-          .then(() => {})
+          .then(() => {navigate('/')})
           .catch((error) => console.log(error));
       };
 
@@ -75,7 +77,7 @@ const Sidebar = () => {
         }  md:translate-x-0 transition duration-200 ease-in-out `}
       >
         <div>
-          {role === "user" || role === "Premium" || role === "requested" ? (
+          {(role == "user" || role == "Premium" || role == "requested") && (
             <>
               <MenuItem
                 label="Create/Edit Biodata"
@@ -104,7 +106,8 @@ const Sidebar = () => {
                 icon={GiEngagementRing}
               ></MenuItem>
             </>
-          ) : (
+          )}
+          {role==="Admin" && (
             <>
               <MenuItem
                 label="Admin Dashboard"

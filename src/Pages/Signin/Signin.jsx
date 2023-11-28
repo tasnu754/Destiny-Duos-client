@@ -12,12 +12,12 @@ import { useState } from "react";
 import { postUser } from "../../APIs/users";
 
 const Signin = () => {
-    const { login, goggleLogin } = useAuth();
+    const { login, goggleLogin} = useAuth();
     const [error, setError] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    console.log(location , from);
+  
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -44,13 +44,16 @@ const Signin = () => {
        goggleLogin()
          .then(async(result) => {
            const user = result.user;
+
+           
            
         const UserPost = {
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        role : 'User'
-      };
+          userEmail: user.email,
+          role: "user",
+          userName: user.displayName,
+          userPhoto: user.photoURL,
+        };
+           console.log(UserPost);
 
        await postUser(UserPost);
       

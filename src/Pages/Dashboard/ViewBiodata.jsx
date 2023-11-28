@@ -1,29 +1,30 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUserBiodata } from "../../APIs/biodatas";
 import useAuth from "../../Hooks/useAuth";
-import { getRole, postUser } from "../../APIs/users";
+import { getRole } from "../../APIs/users";
 import Swal from "sweetalert2";
+import { Spinner } from "@material-tailwind/react";
+import { changeRole } from "../../APIs/adminDashboard";
 
 const ViewBiodata = () => {
     const { user } = useAuth();
-    const { data: biodataDetails = {} } = useQuery({
+    const { data: biodataDetails = {} ,isLoading } = useQuery({
       queryKey: ["biodata"],
-      queryFn: () => getUserBiodata(user.email),
+      queryFn: () => getUserBiodata(user?.email),
     });
-
-    const { data: role } = useQuery({
+    const { data: role , refetch} = useQuery({
       queryKey: ["role"],
-      queryFn: () => getRole(user.email),
+      queryFn: () => getRole(user?.email),
     });
-
+ console.log(role);
     const handleMakePremium = async () => {
  
-      const updateRoleUser = {
-        userEmail: user?.email,
-        role: "requested",
-        userName: user?.displayName,
-        userPhoto: user?.photoURL,
-      };
+      // const updateRoleUser = {
+      //   userEmail: user?.email,
+      //   role: "requested",
+      //   userName: user?.displayName,
+      //   userPhoto: user?.photoURL,
+      // };
 
         
         Swal.fire({
@@ -35,22 +36,29 @@ const ViewBiodata = () => {
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
-              postUser(updateRoleUser)
-                  .then(res => {
-                      console.log(res);
-                   Swal.fire(
-                     "Request send! Please wait for admin approval",
-                     "",
-                     "success"
-                   );
-              })
+              changeRole(user?.email, "requested").then((res) => {
+                console.log(res);
+                refetch();
+                Swal.fire(
+                  "Request send! Please wait for admin approval",
+                  "",
+                  "success"
+                );
+              });
              
            
           } else if (result.isDenied) {
             Swal.fire("Can not send the request", "", "info");
           }
         });
-    };
+  };
+  
+  if (isLoading) {
+   return <Spinner></Spinner>
+  }
+  if (!biodataDetails) {
+    return <h2 className="text-4xl font-bold p-10">No Biodata Added yet</h2>
+  }
     return (
       <div className="p-10  border-r-2 bg-yellow-300 h-full">
         <div className="h-52 w-52 lg:w-[30%] mx-auto lg:h-[400px] overflow-hidden rounded-full">
@@ -83,14 +91,16 @@ const ViewBiodata = () => {
             Expected Partner Wight : {biodataDetails?.expected_partner_weight}
           </p>
         </div>
-        {role === "user" || role==="requested" && (
+        {(role === "user" || role === "requested") && (
           <div className="w-[50%] mx-auto py-6 text-center">
             <button
+              disabled={role === "requested"}
               onClick={handleMakePremium}
               type="submit"
               className="btn1  md:w-full  flex items-center justify-center"
             >
-              Make Premium
+              {role === "requested" ? "Requested" : "Make Premium"}
+              
             </button>
           </div>
         )}

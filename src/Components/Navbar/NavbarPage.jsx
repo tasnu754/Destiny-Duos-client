@@ -6,6 +6,7 @@ import {
   IconButton,
   Collapse,
 
+
 } from "@material-tailwind/react";
 import Container from "../Shared/Container/Container";
  import { GiEngagementRing } from "react-icons/gi";
@@ -21,7 +22,7 @@ const NavbarPage = () => {
        .catch((error) => console.log(error));
    };
 
-
+ 
 
     const [openNav, setOpenNav] = React.useState(false);
 
@@ -124,6 +125,9 @@ const NavbarPage = () => {
   
   
 
+  // if (loading) {
+  //   return <Spinner></Spinner>
+  // }
 
   return (
     <Navbar className="md:sticky bg-opacity-20 bg-black text-white top-0 z-10 h-max max-w-full rounded-none  shadow-md lg:text-xl border-none">
@@ -150,7 +154,7 @@ const NavbarPage = () => {
                   src={user.photoURL}
                   alt=""
                 />
-                <Button onClick={handleSignout} className="btn1">
+                <Button onClick={handleSignout} className="btn1 text-lg">
                   Signout
                 </Button>
               </div>
@@ -216,7 +220,7 @@ const NavbarPage = () => {
                   alt=""
                 />
               </div>
-              <Button onClick={handleSignout} className="btn1">
+              <Button onClick={handleSignout} className="btn1 text-lg">
                 Signout
               </Button>
             </div>
