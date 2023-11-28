@@ -68,9 +68,12 @@ const ViewBiodata = () => {
             alt=""
           />
         </div>
-        <h2 className="md:text-2xl font-bold text-yellow-900 text-center py-6">
+        <h2 className="md:text-2xl font-bold text-yellow-900 text-center pt-6">
           {biodataDetails?.name}
         </h2>
+        <h3 className="md:text-2xl font-bold text-yellow-900 text-center pb-6">
+          {biodataDetails?.contact_email}
+        </h3>
         <div className="space-y-2 md:text-xl font-bold  lg:pl-40  lg:w-[70%] mx-auto lg:grid grid-cols-2 text-gray-700">
           <p>Biodata Id : {biodataDetails?.biodataId}</p>
           <p>Age : {biodataDetails?.age}</p>
@@ -100,7 +103,6 @@ const ViewBiodata = () => {
               className="btn1  md:w-full  flex items-center justify-center"
             >
               {role === "requested" ? "Requested" : "Make Premium"}
-              
             </button>
           </div>
         )}

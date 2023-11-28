@@ -15,14 +15,12 @@ import { MdManageAccounts } from "react-icons/md";
 import { MdFileDownloadDone } from "react-icons/md";
 import { IoGitPullRequest } from "react-icons/io5";
 import { FaChartPie } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import { Spinner } from "@material-tailwind/react";
 import { GiLovers } from "react-icons/gi";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
 
      const handleToggle = () => {
        setActive(!isActive);
@@ -33,11 +31,11 @@ const Sidebar = () => {
          queryKey: ["role"],
          queryFn: () =>  getRole(user?.email),
        });
-  console.log(user, role);
+  // console.log(user, role);
   
       const handleSignout = () => {
         logout()
-          .then(() => {navigate('/')})
+          .then(() => {})
           .catch((error) => console.log(error));
       };
 
@@ -145,7 +143,7 @@ const Sidebar = () => {
         </div>
         <hr />
 
-        <div>
+        
           {/* <div className="flex items-center   transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
             <Link to="/" className="flex justify-center items-center p-4 ">
               <FaHome className="w-7 h-7"></FaHome>
@@ -162,7 +160,7 @@ const Sidebar = () => {
             </button>
           </div>
         </div>
-      </div>
+      
     </>
   );
 };
