@@ -94,7 +94,8 @@ const ContactRequests = () => {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {mobile_number}
+                        {status === "approved" ? mobile_number : "Not Approve yet"}
+                        {/* {mobile_number} */}
                       </Typography>
                     </td>
                     <td className="p-4">
@@ -103,13 +104,14 @@ const ContactRequests = () => {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {contact_email}
+                          {status === "approved" ? contact_email : "Not Approve yet"}
+                        {/* {contact_email} */}
                       </Typography>
                     </td>
 
                     <td className="p-4">
                       <button
-                          onClick={() => handleDelete(_id)}
+                        onClick={() => handleDelete(_id)}
                         color="blue-gray"
                         className="font-medium"
                       >
