@@ -2,7 +2,7 @@ Client Side live link: https://destiny-duos.web.app
 server side live link: https://destiny-duos-server.vercel.app
 
 
-Description aboutthis project--
+**Description about this project**
 
 Welcome to our innovative online matchmaking platform, where connections go beyond profiles. Our platform leverages the power of modern technologies to create a seamless and user-friendly experience for individuals seeking life partners. Here's an overview of the key features:
 
