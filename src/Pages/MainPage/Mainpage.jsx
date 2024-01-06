@@ -4,7 +4,7 @@ import Footer from "../../Components/Footer/Footer";
 
 const Mainpage = () => {
     return (
-      <div className="font-Raleway">
+      <div className="font-Raleway ">
         <NavbarPage></NavbarPage>
         <div className=" min-h-[calc(100vh-218px)]">
           <Outlet></Outlet>

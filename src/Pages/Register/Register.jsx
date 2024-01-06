@@ -58,26 +58,26 @@ const Register = () => {
 }
 
   return (
-    <div className="flex justify-center items-center min-h-[90vh]">
+    <div className="flex justify-center items-center min-h-[90vh] ">
       <Card shadow={false}>
         <Typography
-          className="md:text-4xl font-bold text-center my-2"
+          className="md:text-4xl font-bold text-center my-4"
           color="blue-gray"
         >
           Sign Up
         </Typography>
-        <Typography color="gray" className="mt-1 font-bold md:text-2xl">
-          To find your partner! Please register
+        <Typography color="gray" className="mt-1 font-bold md:text-2xl text-center">
+          To find your partner! <br /> Please register
         </Typography>
         <form
           onSubmit={handleSubmit}
           className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
         >
-          <div className="mb-1 flex flex-col gap-6">
+          <div className="mb-1 flex flex-col gap-2 p-6">
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 md:text-xl"
+              className="-mb-3  md:text-xl"
             >
               Your Name
             </Typography>
@@ -85,7 +85,6 @@ const Register = () => {
               type="text"
               name="name"
               size="lg"
-             
               placeholder="Name"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg"
               labelProps={{
@@ -95,7 +94,7 @@ const Register = () => {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 md:text-xl "
+              className="-mb-3 mt-4 md:text-xl "
             >
               Your Image
             </Typography>
@@ -103,7 +102,6 @@ const Register = () => {
               type="file"
               name="image"
               size="lg"
-             
               placeholder="Image"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg h-[50px]"
               labelProps={{
@@ -113,7 +111,7 @@ const Register = () => {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 md:text-xl"
+              className="-mb-3 md:text-xl mt-4"
             >
               Your Email
             </Typography>
@@ -121,7 +119,6 @@ const Register = () => {
               type="email"
               name="email"
               size="lg"
-           
               placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg"
               labelProps={{
@@ -131,7 +128,7 @@ const Register = () => {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 md:text-xl"
+              className="-mb-3 md:text-xl mt-4"
             >
               Password
             </Typography>
@@ -140,14 +137,13 @@ const Register = () => {
               name="password"
               size="lg"
               placeholder="********"
-           
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 md:text-lg"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
             />
           </div>
-          <Checkbox
+          <Checkbox className="ml-4"
             label={
               <Typography
                 variant="small"
