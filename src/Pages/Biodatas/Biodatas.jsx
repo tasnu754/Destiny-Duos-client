@@ -28,13 +28,20 @@ const Biodatas = () => {
 
   }
 
+   const highestViewsBiodata = biodatas.reduce(
+     (prevBiodata, currentBiodata) => {
+       return currentBiodata.views > prevBiodata.views
+         ? currentBiodata
+         : prevBiodata;
+     }
+   );
+
     return (
       <Container>
         <div className="md:grid grid-cols-7">
           <div className=" col-span-1 border-b-2 border-yellow-700 md:border-b-0 md:border-r-2 md:min-h-screen">
             <h2 className="text-2xl font-bold py-4">Filter By</h2>
             <div className="flex flex-col gap-6 w-full">
-
               <div className="relative h-10 w-72 ">
                 <select
                   value={selectedType}
@@ -66,7 +73,11 @@ const Biodatas = () => {
           </div>
           <div className="col-span-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {biodatas.map((biodata, i) => (
-              <BiodataSingle key={i} biodata={biodata}></BiodataSingle>
+              <BiodataSingle
+                key={i}
+                biodata={biodata}
+                highestViewsBiodata={highestViewsBiodata}
+              ></BiodataSingle>
             ))}
           </div>
         </div>
