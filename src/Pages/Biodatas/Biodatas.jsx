@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Container from "../../Components/Shared/Container/Container";
 import BiodataSingle from "../../Components/BiodataSingle/BiodataSingle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getFilteredBiodatas } from "../../APIs/biodatas";
 
 
@@ -10,6 +10,7 @@ const Biodatas = () => {
   const [biodatas, setbiodatas] = useState(AllBiodatas);
   const [selectedType, setSelectedType] = useState('');
   const [selectedDiv, setSelectedDiv] = useState('');
+  const [highestViewsBiodata, setHighestViewsBiodata] = useState(null);
 
 
 
@@ -28,13 +29,26 @@ const Biodatas = () => {
 
   }
 
-   const highestViewsBiodata = biodatas.reduce(
-     (prevBiodata, currentBiodata) => {
-       return currentBiodata.views > prevBiodata.views
-         ? currentBiodata
-         : prevBiodata;
-     }
-   );
+    useEffect(() => {
+    
+      const fetchData = async () => {
+        try {
+         
+           const highestViewsBiodata = biodatas.reduce(
+             (prevBiodata, currentBiodata) => {
+               return currentBiodata.views > prevBiodata.views
+                 ? currentBiodata
+                 : prevBiodata;
+             }
+           );
+          setHighestViewsBiodata(highestViewsBiodata);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      fetchData();
+    }, [biodatas]); 
 
     return (
       <Container>

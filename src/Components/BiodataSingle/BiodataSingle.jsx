@@ -45,7 +45,7 @@ const BiodataSingle = ({ biodata, highestViewsBiodata }) => {
               >
                 {biodata?.name}
               </Typography>
-              {biodata._id == highestViewsBiodata._id && (
+              {biodata?._id == highestViewsBiodata?._id && (
                 <BsBookmarkStarFill className="text-5xl text-[#532470]"></BsBookmarkStarFill>
               )}
             </div>
