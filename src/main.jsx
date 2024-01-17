@@ -33,6 +33,7 @@ import ApprovePremium from './Pages/Dashboard/ApprovePremium';
 import ApproveReq from './Pages/Dashboard/ApproveReq';
 import Statistics from './Pages/Dashboard/Statistics';
 import AdminSuccessRoute from './Pages/Dashboard/AdminSuccessRoute';
+import ProfileViews from './Pages/Dashboard/ProfileViews';
 
 const queryClient = new QueryClient();
 
@@ -189,6 +190,16 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <AdminRoutes>
               <Statistics></Statistics>
+            </AdminRoutes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profileViews",
+        element: (
+          <PrivateRoute>
+            <AdminRoutes>
+              <ProfileViews></ProfileViews>
             </AdminRoutes>
           </PrivateRoute>
         ),

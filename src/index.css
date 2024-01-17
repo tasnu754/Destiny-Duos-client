@@ -16,9 +16,9 @@
       }
  
       .bg{
-         background: #43c6ac; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #43c6ac, #191654); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #43c6ac, #191654); /* 
+         background: #43c6ac; 
+         background: -webkit-linear-gradient(to right, #43c6ac, #191654); 
+         background: linear-gradient(to right, #43c6ac, #191654);  
       }
          
          .btn1{
@@ -36,7 +36,7 @@
           }
 
           .btn1:hover {
-            background-position: right center; /* change the direction of the change here */
+            background-position: right center; 
             color: #fff;
             text-decoration: none;
           }

@@ -28,7 +28,10 @@ const OthersBiodata = ({ other, role, handleFavourite }) => {
                 {other?.name}
               </Typography>
             </div>
-            <Typography color="blue-gray">{other?.occupation}</Typography>
+            <div className="flex justify-between">
+              <Typography color="blue-gray">{other?.occupation}</Typography>
+              <Typography color="blue-gray">{other?.views} Views</Typography>
+            </div>
           </div>
         </CardHeader>
         <CardBody className="mb-6 p-0 ">

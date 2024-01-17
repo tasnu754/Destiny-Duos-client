@@ -35,6 +35,8 @@ const EditBiodata = () => {
       const mobile_number = form.number.value;
       const status = "Nothing";
       const image = form.image.files[0];
+      const views = 0;
+      const followUsers = [];
       
       try{
          const imgurlData = await imgURL(image);
@@ -61,7 +63,10 @@ const EditBiodata = () => {
           contact_email,
           mobile_number,
           status,
-          role
+          role,
+          views,
+          followUsers
+
         };
         
            await addBiodata(biodata);

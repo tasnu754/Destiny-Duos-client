@@ -8,8 +8,20 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { updateViews } from "../../APIs/biodatas";
+import useAuth from "../../Hooks/useAuth";
 
-const BiodataSingle = ({biodata}) => {
+const BiodataSingle = ({ biodata }) => {
+
+  const { user } = useAuth();
+    
+  const handleViews = async () => {
+     const userEmail = { userEmail: user?.email };
+     const data = await updateViews(biodata._id, userEmail);
+     console.log(data);
+  };
+  
+
     return (
       <div className="shadow-md p-4">
         <Card
@@ -36,25 +48,30 @@ const BiodataSingle = ({biodata}) => {
                   variant="h5"
                   color="blue-gray"
                 >
-                  {biodata.name}
+                  {biodata?.name}
                 </Typography>
               </div>
-              <Typography color="blue-gray">{biodata.occupation}</Typography>
+              <div className="flex justify-between">
+                <Typography color="blue-gray">{biodata?.occupation}</Typography>
+                <Typography color="blue-gray">{biodata?.views} Views</Typography>
+              </div>
             </div>
           </CardHeader>
           <CardBody className="mb-6 p-0 ">
             <Typography>
               <div className="flex justify-between">
-                <p>Biodata Id: {biodata.biodataId}</p>
-                <p>{biodata.biodatatype}</p>
+                <p>Biodata Id: {biodata?.biodataId}</p>
+                <p>{biodata?.biodatatype}</p>
               </div>
               <div className="flex justify-between mb-4">
-                <p>Permanent Division: {biodata.permanent_division_name}</p>
-                <p>{biodata.age} years</p>
+                <p>Permanent Division: {biodata?.permanent_division_name}</p>
+                <p>{biodata?.age} years</p>
               </div>
             </Typography>
-            <Link to={`/biodataDetails/${biodata.biodataId}`}>
-              <Button className="btn1 ">View Profile</Button>
+            <Link to={`/biodataDetails/${biodata?.biodataId}`}>
+              <Button onClick={handleViews} className="btn1 ">
+                View Profile
+              </Button>
             </Link>
           </CardBody>
         </Card>

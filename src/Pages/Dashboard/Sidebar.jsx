@@ -17,6 +17,7 @@ import { IoGitPullRequest } from "react-icons/io5";
 import { FaChartPie } from "react-icons/fa";
 import { Spinner } from "@material-tailwind/react";
 import { GiLovers } from "react-icons/gi";
+import { IoBarChartSharp } from "react-icons/io5";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
@@ -134,6 +135,11 @@ const Sidebar = () => {
                 icon={FaChartPie}
               ></MenuItem>
               <MenuItem
+                label="Profile Views chart"
+                address="profileViews"
+                icon={IoBarChartSharp}
+              ></MenuItem>
+              <MenuItem
                 label="Success Stories"
                 address="successStories"
                 icon={GiLovers}
@@ -143,24 +149,16 @@ const Sidebar = () => {
         </div>
         <hr />
 
-        
-          {/* <div className="flex items-center   transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
-            <Link to="/" className="flex justify-center items-center p-4 ">
-              <FaHome className="w-7 h-7"></FaHome>
-              <span className="mx-4 font-medium text-xl">Home</span>
-            </Link>
-          </div> */}
-          <div className="flex items-center  transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
-            <button
-              onClick={handleSignout}
-              className="flex justify-center items-center p-4 "
-            >
-              <IoIosLogOut className="w-7 h-7 "></IoIosLogOut>
-              <span className="mx-4 font-medium text-xl">Logout</span>
-            </button>
-          </div>
+        <div className="flex items-center  transition-colors duration-300 transform hover:bg-gray-300  text-gray-700">
+          <button
+            onClick={handleSignout}
+            className="flex justify-center items-center p-4 "
+          >
+            <IoIosLogOut className="w-7 h-7 "></IoIosLogOut>
+            <span className="mx-4 font-medium text-xl">Logout</span>
+          </button>
         </div>
-      
+      </div>
     </>
   );
 };

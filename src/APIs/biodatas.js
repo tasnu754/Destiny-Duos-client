@@ -51,3 +51,9 @@ export const addBiodata = async(biodata) => {
     const { data } = await axiosSecure.put('/addBiodata' , biodata)
     return data;
 }
+
+// Update views
+export const updateViews = async(id , userEmail) => {
+    const { data } = await axiosSecure.patch(`/updateViews/${id}` , userEmail)
+    return data;
+}
