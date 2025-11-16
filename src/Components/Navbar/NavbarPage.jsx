@@ -164,7 +164,7 @@ const NavbarPage = () => {
               <span className="text-2xl font-bold text-[#012C3C] !font-greatvibes">
                 Destiny Duos
               </span>
-              <span className="!text-md text-[#928477] font-medium -mt-1 font-dancing">
+              <span className="!text-md text-[#C6BFBB] font-medium -mt-1 font-dancing">
                 Find Your Perfect Match
               </span>
             </div>
