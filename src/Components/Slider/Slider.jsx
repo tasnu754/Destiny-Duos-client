@@ -84,7 +84,7 @@ const Slider = () => {
           // src="https://i.ibb.co/XyTj0kL/austin-pacheco-5-T9m-Hy-Qw-XM-unsplash.jpg"
           src="/slide3.webp"
           alt="Couple wedding rings"
-          className="h-full w-full object-cover brightness-90"
+          className="h-full w-full object-contain brightness-90"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-amber-900/30"></div>
         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
