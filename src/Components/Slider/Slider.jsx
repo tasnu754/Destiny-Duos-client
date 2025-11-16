@@ -6,7 +6,7 @@ const Slider = () => {
     <Carousel
       className="rounded-xl"
       autoplay={true}
-      autoplayDelay={5000}
+      autoplayDelay={2000}
       loop={true}
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-8 left-2/4 z-50 flex -translate-x-2/4 gap-2">
@@ -54,7 +54,8 @@ const Slider = () => {
       {/* Slide 2 */}
       <div className="relative w-full max-h-[90vh] overflow-hidden">
         <img
-          src="https://i.ibb.co/Wt0F0mD/edgar-chaparro-oyjkw-QLky-Ww-unsplash.jpg"
+          // src="https://i.ibb.co/Wt0F0mD/edgar-chaparro-oyjkw-QLky-Ww-unsplash.jpg"
+          src="/slide2.webp"
           alt="Happy couple embracing"
           className="h-full w-full object-cover brightness-90"
         />
@@ -67,12 +68,11 @@ const Slider = () => {
             </h1>
 
             <div className="mt-8 flex justify-center gap-4">
-              <button className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white font-medium rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300">
-                Browse Profiles
-              </button>
-              <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-full shadow-lg hover:shadow-purple-200/30 transition-all duration-300">
-                Join Now
-              </button>
+              <NavLink to="/biodatas">
+                <button className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white font-medium rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300">
+                  Browse Profiles
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -81,7 +81,8 @@ const Slider = () => {
       {/* Slide 3 */}
       <div className="relative w-full max-h-[90vh] overflow-hidden">
         <img
-          src="https://i.ibb.co/XyTj0kL/austin-pacheco-5-T9m-Hy-Qw-XM-unsplash.jpg"
+          // src="https://i.ibb.co/XyTj0kL/austin-pacheco-5-T9m-Hy-Qw-XM-unsplash.jpg"
+          src="/slide3.webp"
           alt="Couple wedding rings"
           className="h-full w-full object-cover brightness-90"
         />
