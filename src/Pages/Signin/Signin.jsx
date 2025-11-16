@@ -55,7 +55,7 @@ const Signin = () => {
         };
            console.log(UserPost);
 
-       await postUser(UserPost);
+        await postUser(UserPost);
       
 
         navigate(from, { replace: true });

@@ -5,12 +5,12 @@ import useAuth from "../../Hooks/useAuth";
 import { changeRole } from "../../APIs/adminDashboard";
 import Swal from "sweetalert2";
 
-const TABLE_HEAD = [
-  "User name",
-  "User email",
-  "Make admin",
-  "Make premium"
-];
+  const TABLE_HEAD = [
+    "User name",
+    "User email",
+    "Make admin",
+    "Make premium"
+  ];
 
 
 const ManageUser = () => {
